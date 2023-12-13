@@ -73,7 +73,7 @@ class CameraValue {
           deviceOrientation: DeviceOrientation.portraitUp,
           isPreviewPaused: false,
           description: description,
-          captureMode: CaptureMode.video,
+          captureMode: CaptureMode.photo,
         );
 
   /// True after [CameraController.initialize] has completed successfully.

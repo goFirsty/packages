@@ -214,7 +214,7 @@ class Camera
             activity,
             dartMessenger,
             resolutionPreset,
-            CaptureMode.video);
+            CaptureMode.photo);
 
     // Create capture callback.
     captureTimeouts = new CaptureTimeoutsWrapper(3000, 3000);

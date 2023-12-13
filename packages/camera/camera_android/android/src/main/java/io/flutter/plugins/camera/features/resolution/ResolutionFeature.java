@@ -299,10 +299,16 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       @NonNull ResolutionPreset preset, Size[] availableOutputSizes) {
     List<Size> availableStandardOutputSizes = new ArrayList<>();
     for (Size outputSize : availableOutputSizes) {
-      if ((Math.abs((double) outputSize.getWidth() / outputSize.getHeight() - (double) 4 / 3)
-          < 0.01)) {
+      // if ((Math.abs((double) outputSize.getWidth() / outputSize.getHeight() - (double) 4 / 3)
+      //     < 0.01)) {
+      //   availableStandardOutputSizes.add(outputSize);
+      // }
+       if ((Math.abs((double) outputSize.getWidth() / outputSize.getHeight() - (double) 4 / 3 )
+          < 0.01)  || (Math.abs((double) outputSize.getWidth() / outputSize.getHeight()  )
+          == 1.0) ) {
         availableStandardOutputSizes.add(outputSize);
       }
+
     }
     Size selectedSize = null;
     switch (preset) {

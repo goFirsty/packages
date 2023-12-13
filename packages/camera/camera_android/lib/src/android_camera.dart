@@ -105,6 +105,7 @@ class AndroidCamera extends CameraPlatform {
             ? _serializeResolutionPreset(resolutionPreset)
             : null,
         'enableAudio': enableAudio,
+        'captureMode': "photo"
       });
 
       return reply!['cameraId']! as int;

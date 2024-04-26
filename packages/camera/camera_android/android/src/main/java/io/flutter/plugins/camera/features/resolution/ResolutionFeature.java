@@ -323,6 +323,10 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
         if (selectedSize != null) {
           return selectedSize;
         }
+          selectedSize = selectPhotoCaptureSizeNearestSize(3025, 1000,availableStandardOutputSizes);
+        if (selectedSize != null) {
+          return selectedSize;
+        }
         // fall through
       case veryHigh:
         selectedSize = selectPhotoCaptureSize(1080, availableStandardOutputSizes);
@@ -377,6 +381,25 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
         }
       }
     }
+    return selectedPreviewResolution;
+  }
+
+
+    private static Size selectPhotoCaptureSizeNearestSize(
+          Integer nearestSize,  Integer nearestLowestSize, List<Size> availableStandardOutputSizes) {
+    Size selectedPreviewResolution = null;
+    int currentHighestPixel = 0;
+    for (Size standardOutputSize : availableStandardOutputSizes) {
+      // When no resolutionWidth is provided, the highest resolution should be selected.
+      if ((nearestSize != null && standardOutputSize.getHeight() <  nearestSize && standardOutputSize.getHeight() > nearestLowestSize )
+              || nearestSize == null) {
+        if (standardOutputSize.getWidth() * standardOutputSize.getHeight() > currentHighestPixel) {
+          selectedPreviewResolution = standardOutputSize;
+          currentHighestPixel = standardOutputSize.getWidth() * standardOutputSize.getHeight();
+        }
+      }
+    }
+
     return selectedPreviewResolution;
   }
 

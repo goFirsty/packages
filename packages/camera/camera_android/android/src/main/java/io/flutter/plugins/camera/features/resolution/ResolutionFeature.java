@@ -327,6 +327,10 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
         if (selectedSize != null) {
           return selectedSize;
         }
+          selectedSize = selectPhotoCaptureSize(null, availableStandardOutputSizes);
+        if (selectedSize != null) {
+          return selectedSize;
+        }
         // fall through
       case veryHigh:
         selectedSize = selectPhotoCaptureSize(1080, availableStandardOutputSizes);

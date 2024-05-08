@@ -151,9 +151,9 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       throws IndexOutOfBoundsException {
     // Using max resolution for the preview is not a good use of system resources.
     // Limiting the max resolution used for the preview to 720p is a good balance.
-    // if (preset.ordinal() > ResolutionPreset.high.ordinal()) {
-    //   preset = ResolutionPreset.high;
-    // }
+     if (preset.ordinal() > ResolutionPreset.high.ordinal()) {
+       preset = ResolutionPreset.high;
+     }
     if (captureMode == CaptureMode.photo) {
       return getBestAvailableCameraSizeForResolutionPreset(preset, availableOutputSizes);
     }

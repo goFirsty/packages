@@ -304,8 +304,10 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
       //   availableStandardOutputSizes.add(outputSize);
       // }
        if ((Math.abs((double) outputSize.getWidth() / outputSize.getHeight() - (double) 4 / 3 )
-          < 0.01)  || (Math.abs((double) outputSize.getWidth() / outputSize.getHeight()  )
-          == 1.0) ) {
+          < 0.01) 
+          //  || (Math.abs((double) outputSize.getWidth() / outputSize.getHeight()  )
+          // == 1.0) 
+          ) {
         availableStandardOutputSizes.add(outputSize);
       }
 
@@ -323,7 +325,7 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
         if (selectedSize != null) {
           return selectedSize;
         }
-          selectedSize = selectPhotoCaptureSizeNearestSize(3025, 1000,availableStandardOutputSizes);
+          selectedSize = selectPhotoCaptureSizeNearestSize(3200, 1000,availableStandardOutputSizes);
         if (selectedSize != null) {
           return selectedSize;
         }
